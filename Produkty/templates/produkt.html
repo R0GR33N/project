@@ -1,11 +1,24 @@
     {% extends 'szablon.html' %}
     {% block produkt %}
     {% if produkt_user%}
-        <h1>{{produkt_user.nazwa}}</h1>
-        <p>Producent: {{produkt_user.producent}}</p>
-        <p>{{produkt_user.opis}}</p>
-        <p>{{produkt_user.cena}}</p>
+   <div >
+    <div >
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">Produkt</span>
+           <h1>{{produkt_user.nazwa}}</h1>
+            <p>Producent: {{produkt_user.producent}}</p>
+            <p>Opis: {{produkt_user.opis}}</p>
+            <p>Cena: {{produkt_user.cena}}</p>
+        </div>
+        <div class="card-action">
+          <a href="#">Dodaj do koszyka</a>
+        </div>
+      </div>
+    </div>
+   </div>
     {% else %}
         <p>Nie ma produktu o takim ID</p>
     {% endif %}
+
     {% endblock produkt %}

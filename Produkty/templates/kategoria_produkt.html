@@ -1,10 +1,21 @@
     {% extends 'szablon.html' %}
     {% block produkt %}
-        {% if kategoria_produkt %}
-            {% for produkt in kategoria_produkt %}
-                <p><a href = "/produkt/{{produkt.id}}/"> {{produkt.nazwa}}</a></p>
-            {% endfor %}
-        {%else%}
+      {% if kategoria_produkt %}
+        {% for produkt in kategoria_produkt %}
+          <div >
+            <div >
+              <div class="card blue-grey darken-1">
+                <div class="card-content white-text">
+                  <span class="card-title">{{produkt.nazwa}}</span>
+                </div>
+                <div class="card-action">
+                  <p><a href = "/produkt/{{produkt.id}}/"> Więcej informacji</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {%else%}
 
-        {%endif%}
-    {% endblock produkt %}
+      {%endif%}
+        {% endblock produkt %}

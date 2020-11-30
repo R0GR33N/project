@@ -1,24 +1,48 @@
-<!DOCTYPE html>
-<html lang="pl">
+
+{% load static %}
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Sklep</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
 </head>
 <body>
-<div>
-    <h1>SKLEP:Jedzenie na sztuki</h1>
-</div>
-<div style="clear: both"></div>
-<div style="width: 200px;float: left;">
-    <h2> MENU </h2>
-    {% for kat in kategorie%}
-    <p><a href="/kategoria/{{kat.id}} ">{{kat.nazwa}}</a></p>
-    {% endfor %}
+  <nav>
+    <div class="nav-wrapper">
+      <a href="http://127.0.0.1:8000/" class="brand-logo">SKLEP:Jedzenie na sztuki</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Koszyk</a></li>
+        <li><a href="badges.html">Login</a></li>
+        <li><a href="collapsible.html">Rejestracja</a></li>
+      </ul>
+    </div>
+  </nav>
+<div style="width: 150px;float: left;">
+    <table>
+        <thead>
+          <tr>
+              <th>Nazwa</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for kat in kategorie%}
+          <tr>
+            <td><a href="/kategoria/{{kat.id}} ">{{kat.nazwa}}</a></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
 
 </div>
-<div style="width: 700;float: left">
-    {% block produkt %}    {% endblock produkt %}
+<div style="width: 800px;float: left">
+    {% block produkt %}   {% endblock produkt %}
 </div>
-<div style="clear: both"></div>
 </body>
 </html>
